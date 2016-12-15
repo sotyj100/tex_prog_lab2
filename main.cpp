@@ -16,6 +16,12 @@ public:
         CloseHandle(hEvent);
     }
 
+
+
+    void wait() {
+    cout << endl << "WaitThread ID: " << GetCurrentThreadId() << endl;
+
+    }
 int main()
 {
     cout << "Hello world!" << endl;
