@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <windows.h>
 using namespace std;
 
 class Event
@@ -11,6 +11,10 @@ public:
     cout << endl << "ThreadCreate ID: " << GetCurrentThreadId() << endl;
     }
 
+    ~Event() {
+    cout << endl << "ThreadDestoyd ID: " << GetCurrentThreadId() << endl;
+        CloseHandle(hEvent);
+    }
 
 int main()
 {
