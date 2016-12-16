@@ -20,10 +20,23 @@ public:
 
     void wait() {
     cout << endl << "WaitThread ID: " << GetCurrentThreadId() << endl;
-
+    WaitForSingleObject(hEvent, INFINITE);
     }
+
+
+
+class CriticalSection : public Lock {
+private:
+    CRITICAL_SECTION CS;
+public:
+    CriticalSection() {
+    InitializeCriticalSection(&CS);
+    }
+
+    ~CriticalSection() {
+        }
+
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+
 }
