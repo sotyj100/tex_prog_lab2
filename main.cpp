@@ -43,6 +43,14 @@ public:
     ~CriticalSection() {
     }
 
+
+class Semaphor : public Lock {
+private:
+    int count_m;
+    int count;
+    CriticalSection *tCrit_Sect;
+    Event *event;
+
 int main()
 {
 
