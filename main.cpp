@@ -32,6 +32,17 @@ public:
     }
 
 };
+
+
+class Lock{
+public:
+    virtual void lock() = 0;
+    virtual void unlock() = 0;
+    virtual ~Lock() {}
+};
+
+
+
 class CriticalSection : public Lock {
 private:
     CRITICAL_SECTION Crit_Sect;
