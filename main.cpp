@@ -43,6 +43,14 @@ public:
     ~CriticalSection() {
     }
 
+void lock() {
+    EnterCriticalSection(&Crit_Sect);
+    }
+
+    void unlock() {
+    LeaveCriticalSection(&Crit_Sect);
+    }
+};
 
 class Semaphor : public Lock {
 private:
