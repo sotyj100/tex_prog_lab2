@@ -16,12 +16,22 @@ public:
         CloseHandle(hEvent);
     }
 
+
+    void set() {
+    SetEvent(hEvent);
+    cout << endl << "ThreadDestoydId: " << GetCurrentThreadId() << endl;
+    }
+
+    void reset(){
+    ResetEvent(hEvent);
+    }
+
     void wait() {
    cout << endl << "WaitThreadId: " << GetCurrentThreadId() << endl;
     WaitForSingleObject(hEvent, INFINITE);
     }
 
-
+};
 class CriticalSection : public Lock {
 private:
     CRITICAL_SECTION Crit_Sect;
