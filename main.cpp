@@ -50,6 +50,16 @@ private:
     int count;
     CriticalSection *tCrit_Sect;
     Event *event;
+public:
+    Semaphor(int count_m) : count_m(count_m), count(0){
+    tCrit_Sect = new CriticalSection();
+    event = new Event();
+    }
+
+    ~Semaphor(){
+    delete event;
+    delete tCrit_Sect;
+    }
 
 int main()
 {
