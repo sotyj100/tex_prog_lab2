@@ -80,6 +80,15 @@ public:
     delete tCrit_Sect;
     }
 
+    void lock(){
+        tCrit_Sect->lock();
+        if(count++ < count_m){
+            tCrit_Sect->unlock();
+            return;
+        }
+        tCrit_Sect->unlock();
+        event->wait();
+    }
 int main()
 {
 
