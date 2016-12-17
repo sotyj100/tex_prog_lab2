@@ -89,6 +89,15 @@ public:
         tCrit_Sect->unlock();
         event->wait();
     }
+
+    void unlock(){
+    tCrit_Sect->lock();
+    if(count-- >= count_m){
+        event->set();
+    }
+    tCrit_Sect->unlock();
+    }
+};
 int main()
 {
 
