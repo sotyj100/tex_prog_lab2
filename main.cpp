@@ -8,33 +8,30 @@ class Event
 public:
     Event() {
     hEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
-    cout << endl << "ThreadCreate ID: " << GetCurrentThreadId() << endl;
+    cout << endl << "ThreadCreateId: " << GetCurrentThreadId() << endl;
     }
 
     ~Event() {
-    cout << endl << "ThreadDestoyd ID: " << GetCurrentThreadId() << endl;
+    cout << endl << "ThreadDestoydId: " << GetCurrentThreadId() << endl;
         CloseHandle(hEvent);
     }
 
-
-
     void wait() {
-    cout << endl << "WaitThread ID: " << GetCurrentThreadId() << endl;
+   cout << endl << "WaitThreadId: " << GetCurrentThreadId() << endl;
     WaitForSingleObject(hEvent, INFINITE);
     }
 
 
-
 class CriticalSection : public Lock {
 private:
-    CRITICAL_SECTION CS;
+    CRITICAL_SECTION Crit_Sect;
 public:
     CriticalSection() {
-    InitializeCriticalSection(&CS);
+    InitializeCriticalSection(&Crit_Sect);
     }
 
     ~CriticalSection() {
-        }
+    }
 
 int main()
 {
