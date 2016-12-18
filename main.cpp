@@ -149,4 +149,14 @@ DWORD result_stop_thread = WaitForMultipleObjects(15, ThreadArray, true, INFINIT
   break;
   }
   }
+
+
+  for (register int i=0; i<15; i++){
+    CloseHandle(ThreadArray[i]);
+  }
+
+  delete SEMAPHOR;
+  SEMAPHOR = NULL;
+
+  return 0;
 }
