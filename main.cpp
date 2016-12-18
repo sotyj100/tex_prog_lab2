@@ -133,4 +133,9 @@ for(register int i=0; i<15; i++){
   cout << "THREAD " << GetCurrentThreadId() << "READ." << endl;
   break;
   }
+  default:{
+  cout << "Osibka: " << GetLastError() << endl;
+  break;
+  }
+  }
 }
