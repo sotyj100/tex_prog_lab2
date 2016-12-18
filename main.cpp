@@ -121,12 +121,23 @@ DWORD WINAPI Foo(PVOID){
 
 int main()
 {
+
+    cout << "Vvod num: ";
+    cin >> num;
 HANDLE ThreadArray[15];
 SEMAPHOR = new Semaphor(5);
 for(register int i=0; i<15; i++){
     ThreadArray[i] = CreateThread(NULL, 0, Foo, NULL, 0, NULL);
   }
 
+
+DWORD result_stop_thread = WaitForMultipleObjects(15, ThreadArray, true, INFINITE);
+
+  switch (result_stop_thread){
+  case WAIT_TIMEOUT:{
+  cout << "Stop timeout!" << endl;
+  break;
+  }
 
 
   case WAIT_OBJECT_0:{
