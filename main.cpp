@@ -121,5 +121,16 @@ DWORD WINAPI Foo(PVOID){
 
 int main()
 {
+HANDLE ThreadArray[15];
+SEMAPHOR = new Semaphor(5);
+for(register int i=0; i<15; i++){
+    ThreadArray[i] = CreateThread(NULL, 0, Foo, NULL, 0, NULL);
+  }
 
+
+
+  case WAIT_OBJECT_0:{
+  cout << "THREAD " << GetCurrentThreadId() << "READ." << endl;
+  break;
+  }
 }
