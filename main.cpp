@@ -106,6 +106,19 @@ Semaphor *SEMAPHOR;
 void inc(void){
 cout << endl << "Inc = " << num++ << endl;
 }
+
+
+DWORD WINAPI Foo(PVOID){
+    while(int i = 5){
+        SEMAPHOR->lock();
+        inc();
+        Sleep(2000);
+        SEMAPHOR->unlock();
+        i--;
+    }
+    return 0;
+}
+
 int main()
 {
 
