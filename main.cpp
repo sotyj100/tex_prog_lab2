@@ -2,6 +2,8 @@
 #include <windows.h>
 using namespace std;
 
+int num = 0;
+
 class Event
 {
     HANDLE hEvent;
@@ -98,6 +100,12 @@ public:
     tCrit_Sect->unlock();
     }
 };
+
+Semaphor *SEMAPHOR;
+
+void inc(void){
+cout << endl << "Inc = " << num++ << endl;
+}
 int main()
 {
 
